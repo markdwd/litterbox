@@ -1,0 +1,96 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI';
+    font-size: 24px;
+    margin: 20px;
+    background-color: whitesmoke;
+}
+
+header {
+    display: flex;
+    align-items: center; /* Vertically centers title and navbar */
+    justify-content: space-between; /* Spreads out title and navbar */
+    padding: 10px 20px; /* Optional: Add padding for spacing */
+}
+
+.nav-links {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    list-style: none;
+    gap: 30px;
+}
+
+.navbar a.active {
+    text-decoration: underline; /* Underlines the active link */
+    text-decoration-color: tan;
+}
+
+.cat {
+    float: left;
+    margin-right: 15px; /* Adds space between the image and text */
+    height: auto;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: tan;
+}
+
+img {
+    width: 300px;
+    height: auto;
+}
+
+.cat p {
+    font-size: 24px;
+    margin-inline-start: 55px;
+    margin-top: 70px;
+}
+
+.albums h1 {
+    padding: 10px 20px;
+    font-size: 24px;
+    text-decoration: underline;
+    text-decoration-color: tan;
+}
+
+.albums p {
+    padding: 10px 20px;
+    font-size: 22px;
+}
+
+.album-info h2 {
+    padding: 10px 20px;
+    font-size: 30px;
+    text-decoration: underline;
+    text-decoration-color: tan;
+}
+
+.album-info p {
+    padding: 10px 20px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.album-cover {
+    padding: 10px 20px;
+    float: left;
+    margin-right: 15px;
+    height: auto;
+    display: flex;
+}
+
+.album-img {
+    border: 3px solid tan;
+}
