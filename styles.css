@@ -1,0 +1,169 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI';
+    font-size: 24px;
+    margin: 20px;
+    background-color: whitesmoke;
+    overflow: scroll;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.nav-links {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    list-style: none;
+    gap: 30px;
+}
+
+.navbar a.active {
+    text-decoration: underline;
+    text-decoration-color: tan;
+}
+
+.cat {
+    float: left;
+    margin-right: 15px;
+    height: auto;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: tan;
+}
+
+.cat img {
+    width: 300px;
+    height: auto;
+}
+
+.cat p {
+    font-size: 24px;
+    margin-inline-start: 55px;
+    margin-top: 70px;
+}
+
+.repo {
+    font-size: 16px;
+    text-decoration: underline;
+    text-decoration-color: tan;
+}
+
+.page-info h1, .mh {
+    padding: 10px 20px;
+    font-size: 24px;
+    text-decoration: underline;
+    text-decoration-color: tan;
+}
+
+.page-info p, .mp{
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+.list-info h2 {
+    padding: 10px 20px;
+    font-size: 30px;
+    text-decoration: underline;
+    text-decoration-color: tan;
+}
+
+.list-info p {
+    padding: 10px 20px;
+    font-size: 20px;
+    text-align: justify;
+    text-indent: 50px
+}
+
+.lists {
+    padding: 10px 20px;
+    float: left;
+    margin-right: 15px;
+    height: auto;
+    display: flex;
+}
+
+.album-img img {
+    width: 480px;
+    border: 3px solid tan;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.hlists {
+    padding: 10px 20px;
+    float: left;
+    height: auto;
+    display: flex;
+}
+
+.hmention h1 {
+    padding: 10px 20px;
+    font-size: 38px;
+    text-decoration: underline;
+    text-decoration-color: tan;
+}
+
+.hmention p {
+    padding: 10px 20px;
+    font-size: 22px;
+}
+
+.hlists-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+.hlist-info h2 {
+    font-size: 16px;
+    text-decoration: underline;
+    text-decoration-color: tan;
+}
+
+.halbum-img img {
+    width: 390px;
+    border: 3px solid tan;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.album-img:hover, .halbum-img:hover {
+    opacity: 0.7;
+}
+
+.manga-cover img {
+    width: auto;
+    height: 500px;
+    border: 3px solid tan;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.peak {
+    max-height: 2.0em;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .peak-container:hover .peak{
+    max-height: 100em;
+  }
