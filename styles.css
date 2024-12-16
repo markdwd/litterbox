@@ -1,0 +1,528 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    padding-top: 60px; /* Space from the top of the screen */
+    margin: 10px 100px;
+    overflow: scroll;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-padding-top: 80px; /* Adjust this value to match the height of your navbar */
+    scroll-behavior: smooth;
+}
+
+header {
+    background-color: tan;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    padding: 5px 10px;
+}
+
+nav .nav-links a.active {
+    text-decoration: underline;
+    text-decoration-color: black;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none; /* Hide the dropdown by default */
+    position: absolute;
+    top: 100%; /* Position it below the albums link */
+    left: 0;
+    background-color: tan;
+    list-style: none;
+    margin: 0;
+    padding: 5px 0;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    padding: 5px 10px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block; /* Show the dropdown when the parent is hovered */
+}
+
+/* Optional: Styling for active links inside the dropdown */
+.dropdown-menu li a:hover {
+    background-color: #e0e0e0; /* Slight highlight on hover */
+}
+
+
+.cat {
+    display: flex;
+    flex-direction: column; /* Stack the items vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: flex-start; /* Align items at the top */
+}
+
+.cat img {
+    width: 400px; /* Make the image bigger */
+    height: auto;
+}
+
+.cat p {
+    font-size: 24px;
+    margin-top: 20px; /* Space below the image */
+    max-width: 800px; /* Limit the width of the text */
+    text-align: center; /* Center the text */
+    padding: 0 10px; /* Optional: adds a little padding around the text */
+}
+
+.repo {
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}
+
+.repo:hover {
+    text-decoration: underline;
+    text-decoration-color: tan;
+}
+
+.page-info h1 {
+    font-size: 24px;
+    text-decoration: underline;
+    text-decoration-color: tan;
+}
+
+.page-info p {
+    font-size: 20px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    gap: 40px; /* Add space between each album section */
+    padding-top: 10px;
+}
+
+.album {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.album:nth-child(even) {
+    flex-direction: row-reverse; /* Reverse the direction for even albums */
+}
+
+.album-img img {
+    width: 480px;
+    height: auto;
+    border: 3px solid tan;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.album-img img:hover, .grid-album img:hover {
+    opacity: 0.7;
+}
+
+.ANalbum-img img {
+    width: 380px;
+    height: auto;
+    border: 3px solid tan;
+}
+
+.list-info {
+    font-size: 20px;
+    max-height: 480px; /* Match the height of the image */
+    overflow-y: auto; /* Allow vertical scrolling if content exceeds the height */
+    width: 800px;
+}
+
+.list-info h2 {
+    font-size: 20px;
+}
+
+.list-info p {
+    text-align: justify;
+    text-indent: 50px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.tracklist {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 10px;
+    max-height: 480px; /* Match the height of the image */
+    overflow-y: auto; /* Allow vertical scrolling if content exceeds the height */
+}
+
+.track-column ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.track-column li {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Mobile devices - smaller screens */
+@media (max-width: 767px) {
+    .tracklist {
+        flex-direction: column;
+        gap: 10px;
+        max-height: none; /* Allow tracklist to grow for smaller screens */
+    }
+
+    .track-column {
+        width: 100%;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    .track-column li {
+        font-size: 12px;
+    }
+}
+
+/* Tablets and smaller desktops */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .tracklist {
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .track-column {
+        width: 48%;
+    }
+
+    h3 {
+        font-size: 17px;
+    }
+
+    .track-column li {
+        font-size: 13px;
+    }
+}
+
+/* Larger screens (desktops) */
+@media (min-width: 1025px) {
+    .tracklist {
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .track-column {
+        width: 48%;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .track-column li {
+        font-size: 14px;
+    }
+}
+
+.mention h1 {
+    font-size: 24px;
+    text-decoration: underline;
+    text-decoration-color: tan;
+    padding-top: 50px;
+}
+
+.mention p {
+    font-size: 20px;
+    padding-bottom: 20px;
+    text-align: justify;
+}
+
+.album-grid-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Space between album covers */
+}
+
+.grid-album {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px; /* Space for the album info */
+}
+
+.grid-album img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 3px solid tan;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.grid-album-info {
+    position: absolute;
+    bottom: -10px; /* Position closer to the image */
+    left: 0;
+    font-size: 16px; /* Small text size */
+    color: black;
+    text-align: left;
+    white-space: nowrap; /* Prevents wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds "..." if text overflows */
+}
+
+/* Responsiveness */
+@media (max-width: 767px) {
+    .album-grid-section {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+        gap: 15px;
+    }
+    .grid-album-info {
+        font-size: 10px; /* Slightly smaller text for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .album-grid-section {
+        grid-template-columns: 1fr; /* 1 column on very small screens */
+    }
+}
+
+/* Carousel Container */
+.carousel {
+    position: relative;
+    width: 380px; /* Full width of the container */
+    height: 500px; /* Set fixed height */
+    overflow: hidden;
+}
+
+/* Carousel Inner: Holds the items */
+.carousel-inner {
+    display: flex;
+    height: 500px;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+/* Each Carousel Item */
+.carousel-item {
+    flex: 0 0 100%; /* Each item takes up 100% of the container width */
+    height: 100%; /* Match the carousel height */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Images */
+.mnm-img img {
+    width: auto; /* Maintain original aspect ratio */
+    height: 500px; /* Set fixed height */
+    display: block;
+    border: 3px solid tan; /* Border around each image */
+}
+
+/* Carousel Title */
+.carousel-title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 2px;
+}
+
+/* Carousel Navigation Dots */
+.carousel-nav {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.carousel-nav-button {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: black;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for dots */
+.carousel-nav-button:hover {
+    background-color: tan;
+}
+
+/* Radio Button Hack to Track Active Image */
+input[type="radio"] {
+    display: none; /* Hide the radio buttons */
+}
+
+/* Slide Logic for Each Carousel */
+#slide1-1:checked ~ .carousel-inner {
+    transform: translateX(0);
+}
+
+#slide2-1:checked ~ .carousel-inner {
+    transform: translateX(-100%);
+}
+
+#slide3-1:checked ~ .carousel-inner {
+    transform: translateX(-200%);
+}
+
+#slide4-1:checked ~ .carousel-inner {
+    transform: translateX(-300%);
+}
+
+#slide1-2:checked ~ .carousel-inner {
+    transform: translateX(0);
+}
+
+#slide2-2:checked ~ .carousel-inner {
+    transform: translateX(-100%);
+}
+
+#slide3-2:checked ~ .carousel-inner {
+    transform: translateX(-200%);
+}
+
+#slide4-2:checked ~ .carousel-inner {
+    transform: translateX(-300%);
+}
+
+#slide1-3:checked ~ .carousel-inner {
+    transform: translateX(0);
+}
+
+#slide2-3:checked ~ .carousel-inner {
+    transform: translateX(-100%);
+}
+
+#slide3-3:checked ~ .carousel-inner {
+    transform: translateX(-200%);
+}
+
+#slide4-3:checked ~ .carousel-inner {
+    transform: translateX(-300%);
+}
+
+#slide1-4:checked ~ .carousel-inner {
+    transform: translateX(0);
+}
+
+#slide2-4:checked ~ .carousel-inner {
+    transform: translateX(-100%);
+}
+
+#slide3-4:checked ~ .carousel-inner {
+    transform: translateX(-200%);
+}
+
+#slide4-4:checked ~ .carousel-inner {
+    transform: translateX(-300%);
+}
+
+#slide1-5:checked ~ .carousel-inner {
+    transform: translateX(0);
+}
+
+#slide2-5:checked ~ .carousel-inner {
+    transform: translateX(-100%);
+}
+
+#slide3-5:checked ~ .carousel-inner {
+    transform: translateX(-200%);
+}
+
+#slide4-5:checked ~ .carousel-inner {
+    transform: translateX(-300%);
+}
+
+#slide1-6:checked ~ .carousel-inner {
+    transform: translateX(0);
+}
+
+#slide2-6:checked ~ .carousel-inner {
+    transform: translateX(-100%);
+}
+
+#slide3-6:checked ~ .carousel-inner {
+    transform: translateX(-200%);
+}
+
+#slide4-6:checked ~ .carousel-inner {
+    transform: translateX(-300%);
+}
+
+#slide1-7:checked ~ .carousel-inner {
+    transform: translateX(0);
+}
+
+#slide2-7:checked ~ .carousel-inner {
+    transform: translateX(-100%);
+}
+
+
